@@ -49,8 +49,7 @@ $("#calendar-menu").on("click", function() {
   var calendarMenu = `<div id='calendar-container'>
     <div id='calendar'></div>
     <form id="event-form" action="" >
-        <input type="text" placeholder="event" id="event-name">
-        <button id='submit-event' type="button" class="btn btn-primary btn-small">submit</button>
+        <button id='deleteEvent' type="button" class="btn btn-danger btn-small">Delete</button>
       </form>
   </div>`;
   overlay.html(calendarMenu);
@@ -78,17 +77,20 @@ $("#calendar-menu").on("click", function() {
 
           var eventName = prompt("Enter Event Name");
 
-          var endDate = prompt("Event duration");
+          var endDate = prompt("Event duration As number");
+          console.log(endDate);
+          var eventendDate = moment(date).add(endDate, "days");
+          var finalDate = eventendDate._d;
 
           if (!isNaN(date.valueOf()) && eventName.length > 0) {
             // valid?
             calendar.addEvent({
               title: eventName,
               start: date,
-              end: endDate,
+              end: finalDate,
               allDay: true
             });
-            alert("Great. Now, update your database...");
+            alert("Event Added");
           } else {
             alert("Invalid date.");
           }
@@ -125,18 +127,8 @@ $("#calendar-menu").on("click", function() {
   var path = calendar.state.eventStore.defs;
 
   console.log(path);
-
+  $(document).on("click", "#deleteEvent", function() {
+    $("#calendar").fullCalendar("removeEvents", 2); //Remove events with the id: 2
+  });
   calendar.render();
 });
-
-// $(document).on('click', '#submit-event', function () {
-
-//     var eventName = $('#event-name');
-//     console.log(eventName.val());
-//     var object = {
-//         title: eventName.val(),
-//         start: '1234544'
-//     }
-//     console.log(object);
-
-// });
