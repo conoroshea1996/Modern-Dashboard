@@ -47,6 +47,11 @@ $("#dash").on("click", function() {
 $("#calendar-menu").on("click", function() {
   var overlay = $(".overlay");
   var calendarMenu = `<div id='calendar-container'>
+  <div class="events">
+  <input type="text" id="eventName" placeholder='Event Name..'>
+  <input type="text" id="eventStart" placeholder='Enter Date..'>
+  <input type="text" id="eventEnd" placeholder='Enter lenght in days'>
+</div>
     <div id='calendar'></div>
     <form id="event-form" action="" >
         <button id='deleteEvent' type="button" class="btn btn-danger btn-small">Delete</button>
@@ -72,24 +77,36 @@ $("#calendar-menu").on("click", function() {
       addEventButton: {
         text: "add event...",
         click: function() {
-          var dateStr = prompt("Enter a date in YYYY-MM-DD format");
-          var date = new Date(dateStr + "T00:00:00"); // will be in local time
+          var eventName = $("#eventName");
+          var eventStart = $("#eventStart");
+          var eventEnd = $("#eventEnd");
 
-          var eventName = prompt("Enter Event Name");
+          var eventNameValue = eventName[0].value;
+          console.log(eventNameValue);
 
-          var endDate = prompt("Event duration As number");
-          console.log(endDate);
+          var eventStartValue = eventStart[0].value;
+          console.log(eventStartValue);
+
+          var date = new Date(eventStartValue + "T00:00:00"); // will be in local time
+
+          var eventEndValue = eventEnd[0].value;
+          var endDate = parseInt(eventEndValue);
+          console.log(typeof endDate);
+
           var eventendDate = moment(date).add(endDate, "days");
           var finalDate = eventendDate._d;
 
           if (!isNaN(date.valueOf()) && eventName.length > 0) {
             // valid?
             calendar.addEvent({
-              title: eventName,
+              title: eventNameValue,
               start: date,
               end: finalDate,
               allDay: true
             });
+            eventNameValue = "";
+            eventEndValue = "";
+            eventEndValue = "";
             alert("Event Added");
           } else {
             alert("Invalid date.");

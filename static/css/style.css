@@ -279,3 +279,14 @@
   background: white;
   overflow: hidden;
 }
+
+.events {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  margin-bottom: 10px;
+}
+.events input {
+  display: inline-block;
+  width: 100%;
+}
