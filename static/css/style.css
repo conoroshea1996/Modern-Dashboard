@@ -1,0 +1,281 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.darkmode-class {
+  background: rgb(50, 50, 51);
+  color: white;
+}
+
+.nav {
+  background: rgb(67, 179, 216);
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin-bottom: 30px;
+}
+
+.nav h3 {
+  margin: auto;
+  text-transform: uppercase;
+}
+
+.reset {
+  margin: 5px auto;
+  display: block;
+}
+
+.data {
+  display: grid;
+  margin: auto;
+  width: 80%;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+}
+
+.box {
+  color: rgb(37, 36, 36);
+  border-radius: 10px;
+  background: lightblue;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 55px;
+  transition: all 0.5s ease-in-out;
+}
+
+.box:hover {
+  background: rgb(90, 196, 231);
+}
+
+.totalData {
+  text-align: center;
+}
+
+.tour-btn {
+  margin-left: 50px;
+  border: white 1px solid;
+  border-radius: 5px;
+  background: rgb(105, 200, 231);
+  color: white;
+  transition: all 0.5s ease-in-out;
+  text-transform: uppercase;
+}
+
+.tour-btn:hover {
+  background: rgb(74, 193, 233);
+  transform: scale(1.01);
+}
+
+.darkMode-btn {
+  margin-right: 50px;
+  background: lightgray;
+  border: white 1px solid;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.5s ease-in-out;
+  text-transform: uppercase;
+}
+
+.darkMode-btn:hover {
+  background: darkgray;
+  transform: scale(1.01);
+}
+
+.platform-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-dashbaord {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  width: 100%;
+  height: 40vh;
+}
+
+.genre-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.middle-dashboard {
+  margin-top: 100px;
+  width: 100%;
+  height: 35vh;
+}
+
+.bottom-dashbaord {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  width: 100%;
+  height: 80vh;
+}
+
+#platform h2 {
+  margin-bottom: 30px;
+}
+
+.darkmode-ticks {
+  stroke: white !important;
+}
+
+.darkmode-text {
+  fill: white !important;
+}
+
+.sales-container {
+  width: 100%;
+  height: 100%;
+}
+
+.footer {
+  width: 100%;
+  height: 60px;
+  background: rgb(83, 177, 209);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer h2 {
+  margin: 0;
+}
+
+.publisher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.region {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .top-dashbaord {
+    grid-template-columns: 1fr;
+    height: 100%;
+  }
+
+  .bottom-dashbaord {
+    grid-template-columns: 1fr;
+    height: 100%;
+  }
+}
+
+#salesSpan .x.axis text {
+  text-anchor: end !important;
+  transform: rotate(-55deg);
+}
+
+/* NavBar Btn */
+
+.nav-btn {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: hidden;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.bar-btn {
+  width: 100%;
+  height: 3px;
+  background: white;
+}
+
+.nav-menu-main {
+  height: 100vh;
+  width: 8%;
+  position: fixed;
+  top: -150%;
+  background: slategrey;
+  transition: all 1s ease;
+  z-index: 3;
+}
+
+.nav-menus {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  z-index: 5;
+  height: 90%;
+  margin-top: 40px;
+}
+
+.nav-active {
+  top: 0;
+}
+
+.nav-menus li {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  border-bottom: solid lightgrey 1px;
+  cursor: pointer;
+}
+
+#dash {
+  transition: all 1s ease;
+}
+
+#dash:hover {
+  background: rgb(12, 64, 82);
+  color: lightblue;
+}
+
+#calendar-menu {
+  transition: all 0.8s ease;
+}
+
+#calendar-menu:hover {
+  background: rgb(235, 52, 52);
+  color: silver;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(16, 33, 39, 0.432);
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+#calendar-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#calendar {
+  width: 80%;
+  height: 80%;
+  background: white;
+  overflow: hidden;
+}
